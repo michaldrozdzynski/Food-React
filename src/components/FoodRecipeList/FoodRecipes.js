@@ -66,7 +66,7 @@ class FoodRecipes extends React.Component {
                 vegetarian: values.vegetarian ? 1 : null,
             }
         }
-
+        
         axios.get("http://localhost:8000/api/foodrecipe", this.params)
             .then((response) => {
                 this.setState({

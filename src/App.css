@@ -2,9 +2,8 @@
 
 .foodRecipe {
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 15px;
-  background-color: rgb(212, 218, 129);
   width: 70%;
   box-shadow: 2px 1px 5px;
 }
@@ -38,7 +37,7 @@
   box-shadow: 2px 1px 5px;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
-  background-color: rgb(212, 218, 129);
+ 
   text-align: center;
 }
 
@@ -54,7 +53,7 @@
   padding: 1%;
   margin: 1%;
   font-family: 'Lato', sans-serif;
-  background-color: rgb(212, 218, 129);;
+ 
   box-shadow: 2px 1px 5px;
   cursor: pointer;
 }
@@ -65,10 +64,17 @@
 }
 
 .pagination div.disabled {
-  background-color: rgb(192, 192, 115);
+  background-color: rgb(214, 214, 214);
   cursor: default;
 }
 
 .pagination span {
   margin: 2%;
+}
+
+.loginForm {
+  width: 50%;
+  padding: 2%;
+  margin: auto;
+  margin-top: 5%;
 }
