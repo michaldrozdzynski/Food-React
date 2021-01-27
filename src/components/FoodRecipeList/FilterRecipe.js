@@ -1,7 +1,6 @@
 import React from 'react'
 import {Col, Row, Form, FormLabel, FormGroup, FormControl, FormCheck, Button} from 'react-bootstrap'
 import axios from 'axios'
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils'
 
 class FilterRecipe extends React.Component {
     category = null
@@ -85,13 +84,50 @@ class FilterRecipe extends React.Component {
                         <FormGroup>
                             <FormLabel>
                                 <FormCheck 
+                                    inline
                                     name="chooseCategory" 
-                                    type="checkbox" 
-                                    label="Category" 
+                                    type="checkbox"  
                                     onChange={this.handleChangeCheckbox} 
                                     checked={this.state.chooseCategory}
-                                />
+                                />Category
+                            </FormLabel>         
+                        </FormGroup>
+                    </Col>
+                    <Col sm={4}>
+                        <FormGroup>
+                            <FormLabel>
+                                <FormCheck 
+                                    inline
+                                    name="chooseCountry" 
+                                    type="checkbox" 
+                                    onChange={this.handleChangeCheckbox}
+                                    checked={this.state.chooseCountry}
+                                />Cuisine Country
                             </FormLabel>
+                            
+                
+                        </FormGroup>
+                    </Col>
+                    <Col sm={4}>
+                        <FormGroup>
+                            <FormLabel>
+                                <FormCheck
+                                    inline
+                                    name="vegetarian"
+                                    type="checkbox"
+                                    onChange={this.handleChangeCheckbox}
+                                    checked={this.state.vegetarian}
+                                />Vegetarian
+                            </FormLabel>
+                        </FormGroup>
+
+                        
+                        
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm={4}>
+                        <FormGroup>
                             <FormControl
                                 as="select"
                                 disabled={!this.state.chooseCategory}
@@ -105,17 +141,8 @@ class FilterRecipe extends React.Component {
                             </FormControl>
                         </FormGroup>
                     </Col>
-                    <Col sm={4}>
+                   <Col sm={4}>
                         <FormGroup>
-                            <FormLabel>
-                                <FormCheck 
-                                    name="chooseCountry" 
-                                    type="checkbox" 
-                                    label="Cuisine Country" 
-                                    onChange={this.handleChangeCheckbox}
-                                    checked={this.state.cuisineCountry}
-                                />
-                            </FormLabel>
                             <FormControl 
                                 as="select" 
                                 disabled={!this.state.chooseCountry} 
@@ -127,23 +154,9 @@ class FilterRecipe extends React.Component {
                                 <option key="0" value="">Please choose a cuisine country</option>
                                 {countryOptions}
                             </FormControl>
-                
                         </FormGroup>
                     </Col>
-                    <Col sm={4}>
-                        <FormGroup>
-                            <FormCheck
-                                name="vegetarian"
-                                type="checkbox"
-                                label="Vegetarian"
-                                onChange={this.handleChangeCheckbox}
-                                checked={this.state.vegetarian}
-                            />
-                        </FormGroup>
-
-                        <Button variant="primary" type="submit">Search</Button>
-                        
-                    </Col>
+                    <Col sm={4}><Button variant="primary" type="submit">Search</Button></Col>
                 </Row>
             </Form>
         )
