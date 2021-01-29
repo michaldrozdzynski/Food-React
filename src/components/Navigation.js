@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 
 function Navigation(props) {
 
@@ -20,7 +20,9 @@ function Navigation(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/foodrecipe">Find Recipe</Nav.Link>
-            <Nav.Link href="/foodporn">Foodporn</Nav.Link>
+            {props.auth ? <Nav.Link href="/foodporn">Foodporn</Nav.Link> : null}
+            {props.auth ? <Nav.Link href="/foodporn/create">Create Foodporn</Nav.Link> : null}
+            
           </Nav>
           {navSection}
         </Navbar.Collapse>
