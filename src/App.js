@@ -11,6 +11,8 @@ import {
 import Login from './components/Login';
 import Register from './components/Register';
 import axios from 'axios';
+import Foodporn from './components/Foodporn/Foodporn';
+import FoodpornCreate from './components/Foodporn/FoodpornCreate';
 
 class App extends React.Component {
     constructor() {
@@ -69,6 +71,12 @@ class App extends React.Component {
                     </Route>
                     <Route path="/register" exact>
                         {this.state.token !== null ? <Redirect to="/" /> : <Register login={this.login}/>}
+                    </Route>
+                    <Route path="/foodporn" exact>
+                        {this.state.token === null ? <Redirect to="/" /> : <Foodporn token={this.state.token}/>}
+                    </Route>
+                    <Route path="/foodporn/create" exact>
+                        {this.state.token === null ? <Redirect to="/" /> : <FoodpornCreate token={this.state.token}/>}
                     </Route>
                 </Switch>
             </Router>
