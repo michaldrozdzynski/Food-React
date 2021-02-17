@@ -24,12 +24,11 @@ class Login extends React.Component {
 
         axios.post('http://localhost:8000/api/login', params)
         .then((response) => {
-            this.props.login(response.data.access_token)
+            this.props.login(response.data.access_token, response.data.user.id, response.data.user.name)
         })
         .catch(() => {
             this.setState({
                 error : <p className="text-danger">Wrong password or e-mail.</p>
-
             })
         })
     }

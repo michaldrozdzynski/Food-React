@@ -3,8 +3,10 @@ import {Navbar, Nav} from 'react-bootstrap'
 
 function Navigation(props) {
 
+  console.log(props.user_name)
     const navSection = props.auth ? (
       <Nav>
+        <Nav.Link href={`/user/${props.user_id}`}>{props.user_name}</Nav.Link>
         <Nav.Link href="/logout">Sign out</Nav.Link>
       </Nav>
     ) : (
@@ -20,6 +22,7 @@ function Navigation(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/foodrecipe">Find Recipe</Nav.Link>
+            {props.auth ? <Nav.Link href="/foodrecipe/create">Create Recipe</Nav.Link> : null}
             {props.auth ? <Nav.Link href="/foodporn">Foodporn</Nav.Link> : null}
             {props.auth ? <Nav.Link href="/foodporn/create">Create Foodporn</Nav.Link> : null}
             

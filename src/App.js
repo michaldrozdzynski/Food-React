@@ -1,6 +1,6 @@
 import './App.css'
 import React from 'react'
-import FoodRecipes from './components/FoodRecipeList/FoodRecipes.js'
+import FoodRecipes from './components/FoodRecipe/FoodRecipes.js'
 import Navbar from './components/Navigation'
 import {
     BrowserRouter as Router,
@@ -13,6 +13,11 @@ import Register from './components/Register';
 import axios from 'axios';
 import Foodporn from './components/Foodporn/Foodporn';
 import FoodpornCreate from './components/Foodporn/FoodpornCreate';
+import ShowFoodRecipe from './components/FoodRecipe/ShowFoodRecipe';
+import FoodRecipeCreate from './components/FoodRecipe/FoodRecipeCreate';
+import User from './components/User/User';
+import Conversation from './components/User/Conversation';
+import 'regenerator-runtime/runtime'
 
 class App extends React.Component {
     constructor() {
@@ -20,19 +25,24 @@ class App extends React.Component {
 
         this.state = {
             token: localStorage.getItem('token'),
+            user_name: localStorage.getItem('user_name'),
+            user_id: localStorage.getItem('user_id')
         }
 
         this.login = this.login.bind(this)
         this.logout = this.logout.bind(this)
     }  
 
-    login(access_token) {
+    login(access_token, id, name) {
         this.setState({
             token: access_token,
-            logged: true,
+            user_name: name,
+            user_id: id,
         })
 
         localStorage.setItem('token', access_token)
+        localStorage.setItem('user_name', name)
+        localStorage.setItem('user_id', id)
     }
 
     logout() {
@@ -55,6 +65,8 @@ class App extends React.Component {
             <Router>
                 <Navbar
                     auth={this.state.token !== null}
+                    user_name={this.state.user_name}
+                    user_id={this.state.user_id}
                 />
                 <Switch>
                     <Route path="/" exact>
@@ -78,6 +90,12 @@ class App extends React.Component {
                     <Route path="/foodporn/create" exact>
                         {this.state.token === null ? <Redirect to="/" /> : <FoodpornCreate token={this.state.token}/>}
                     </Route>
+                    <Route path="/foodrecipe/create" exact>
+                        {this.state.token === null ? <Redirect to="/" /> : <FoodRecipeCreate token={this.state.token}/>}
+                    </Route>
+                    <Route path="/foodrecipe/:id" exact component={ShowFoodRecipe}></Route>
+                    <Route path="/user/:id" exact><User token={this.state.token} user_id={this.state.user_id}/></Route>
+                    <Route path="/conversation" exact><Conversation token={this.state.token} user_id={this.state.user_id}/></Route>
                 </Switch>
             </Router>
         )
