@@ -4,8 +4,13 @@
   margin: auto;
   margin-top: 10px;
   padding: 15px;
-  width: 70%;
+  width: 1000px;
   box-shadow: 2px 1px 5px;
+}
+
+.foodRecipe img {
+  width: 100%;
+  height: auto;
 }
 
 .foodName {
@@ -19,7 +24,9 @@
   font-size: 70px;
   text-align: center;
   border: solid; 
-  border-radius: 60px;
+  border-radius: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .footerRecipe {
@@ -31,7 +38,7 @@
 }
 
 .filter {
-  width: 69%;
+  width: 1000px;
   margin: auto;
   margin-top: 10px;
   box-shadow: 2px 1px 5px;
@@ -120,4 +127,52 @@
   justify-content: center;
   margin: auto;
   font-size: 40px;
+}
+
+.recipe {
+  margin: auto;
+  margin-top: 10px;
+  padding: 15px;
+  width: 1000px;
+  box-shadow: 2px 1px 5px;
+  font-size: 100%;
+}
+
+.recipe img {
+  width: 100%;
+  height: auto;
+}
+
+.comment {
+  padding: 1%;
+  margin: 1%;
+}
+
+.recipePoints {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+.user {
+  margin: auto;
+  margin-top: 10px;
+  padding: 15px;
+  width: 1000px;
+  font-size: 100%;
+
+}
+
+.user img {
+  width: 100%;
+  height: auto;
+}
+
+.redirectButton {
+  color: white;
+}
+
+.redirectButton:hover {
+  text-decoration: none;
+  color: white;
 }

@@ -3,6 +3,22 @@ import {Col, Row} from 'react-bootstrap'
 
 
 function FoodRecipe(props) {
+    let pointColor = null
+
+    if (props.points === 0) {
+        pointColor = {
+            color: 'black',
+        }
+    } else if (props.points > 0) {
+        pointColor = {
+            color: 'MediumSeaGreen',
+        }
+    } else {
+        pointColor = {
+            color: 'red',
+        }
+    }
+
     return (
         <div className="card foodRecipe">
             <Row sm={10}>
@@ -18,7 +34,7 @@ function FoodRecipe(props) {
                     </Row>
                     <Row className="footerRecipe"><div ><a href={'/user/' + props.user_id}>@{props.user_name}</a></div></Row>
                 </Col>
-                <Col sm={2}><div className="foodPoints">{props.points}</div></Col>
+                <Col sm={2}><div className="foodPoints" style={pointColor}>{props.points}</div></Col>
             </Row>  
         </div>
     )
